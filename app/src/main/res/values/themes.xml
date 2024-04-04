@@ -2,8 +2,24 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.HoroscApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="android:statusBarColor">@color/secondary</item>
+
     </style>
 
     <style name="Theme.HoroscApp" parent="Base.Theme.HoroscApp" />
+
+    <style name="Title">
+       <item name = "android:textStyle">bold</item>
+       <item name = "android:fontFamily">@font/dancing</item>
+       <item name = "android:textColor">@color/secondary</item>
+       <item name = "android:textSize">30sp</item>
+    </style>
+
+    <style name="Paragraph" parent="Title">
+        <item name = "android:textStyle">normal</item>
+        <item name = "android:textSize">18sp</item>
+        <item name = "android:lineSpacingExtra">8sp</item>
+        <item name = "android:lineSpacingMultiplier">1.2</item>
+
+    </style>
 </resources>

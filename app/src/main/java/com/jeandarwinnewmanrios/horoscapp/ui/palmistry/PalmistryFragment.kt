@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import com.jeandarwinnewmanrios.horoscapp.R
 import com.jeandarwinnewmanrios.horoscapp.databinding.FragmentLuckBinding
 import com.jeandarwinnewmanrios.horoscapp.databinding.FragmentPalmistryBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PalmistryFragment : Fragment() {
 
     private var _binding: FragmentPalmistryBinding? = null //que siginifica _binding y binding en este caso?  //binding es una propiedad privada que devuelve el valor de _binding y _binding es una variable privada que es nula
