@@ -3,6 +3,7 @@ package com.jeandarwinnewmanrios.horoscapp.ui.detail
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jeandarwinnewmanrios.horoscapp.domain.model.HoroscopeModel
 import com.jeandarwinnewmanrios.horoscapp.domain.usecase.GetPredictionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -21,16 +22,18 @@ class HoroscopeDetailViewModel @Inject constructor(private val getPredictionUseC
     val state: StateFlow<HoroscopeDetailState> = _state //explica el StateFlow y el _state y el state
     //StateFlow es una clase que se encarga de manejar el estado de un flujo de datos y _state es una variable que se encarga de manejar el estado de un horoscopo y state es una variable que se encarga de manejar el estado de un horoscopo
 
-    fun getHoroscope(sign: String) { //explica el getHoroscope
-        Log.i("trucutru", "Sign: $sign")
+    lateinit var horoscope: HoroscopeModel //explica el lateinit y el HoroscopeModel
+
+    fun getHoroscope(sign: HoroscopeModel) { //explica el getHoroscope
+        horoscope = sign
         _state.value = HoroscopeDetailState.Loading //explica el _state y el HoroscopeDetailState.Loading
         viewModelScope.launch {
            //explica el withContext y el Dispatchers.IO y el getPredictionUseCase
             //withContext es una funcion que se encarga de ejecutar una tarea en un hilo secundario y Dispatchers.IO es un hilo secundario y getPredictionUseCase es una funcion que se encarga de obtener un horoscopo
 
-          val result =  withContext(Dispatchers.IO) { getPredictionUseCase(sign) } //hilo secundario
+          val result =  withContext(Dispatchers.IO) { getPredictionUseCase(sign.name) } //hilo secundario
             if(result != null) {
-                _state.value = HoroscopeDetailState.Success(result.horoscope, result.sign) // puede recibir un objeto de tipo PredictionModel
+                _state.value = HoroscopeDetailState.Success(result.horoscope, result.sign, horoscope) // puede recibir un objeto de tipo PredictionModel
             } else {
                 _state.value = HoroscopeDetailState.Error("Error al obtener el horoscopo")
             }

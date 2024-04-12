@@ -26,19 +26,20 @@
     </FrameLayout>
 
 
-<androidx.fragment.app.FragmentContainerView
-    android:id="@+id/fwView"
-    android:name="androidx.navigation.fragment.NavHostFragment"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    app:defaultNavHost="true"
-    app:navGraph="@navigation/main_graph"
-    app:layout_constraintTop_toBottomOf="@id/toolbar"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fwView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/main_graph"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnNavView">
 
-</androidx.fragment.app.FragmentContainerView>
+    </androidx.fragment.app.FragmentContainerView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btnNavView"
         android:layout_width="0dp"

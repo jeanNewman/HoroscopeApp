@@ -12,6 +12,7 @@ import androidx.navigation.navArgs
 import com.jeandarwinnewmanrios.horoscapp.R
 import com.jeandarwinnewmanrios.horoscapp.databinding.ActivityHoroscopeDetailBinding
 import com.jeandarwinnewmanrios.horoscapp.databinding.ActivityMainBinding
+import com.jeandarwinnewmanrios.horoscapp.domain.model.HoroscopeModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -29,12 +30,21 @@ class HoroscopeDetailActivity : AppCompatActivity() {
         binding = ActivityHoroscopeDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
        // setContentView(R.layout.activity_horoscope_detail)
-        horoscopeDetailViewModel.getHoroscope(args.type.name)
+        horoscopeDetailViewModel.getHoroscope(args.type)
         initUI()
     }
 
     private fun initUI() {
+        initListeners()
         initUIState()
+    }
+
+    private fun initListeners() {
+        binding.ivBack.setOnClickListener {
+          //  onBackPressed()
+            // onBackPressed esta en desuso, que puedo usar?
+            finish()
+        }
     }
 
     private fun initUIState() {
@@ -57,13 +67,28 @@ class HoroscopeDetailActivity : AppCompatActivity() {
 
     private fun errorState(error: String) {
         binding.pbDetail.isVisible = false
-        Log.i("trucutru", "Error: $error")
+
     }
 
     private fun successState(it: HoroscopeDetailState.Success) {
         binding.pbDetail.isVisible = false
         binding.tvDetail.text = it.sign
         binding.tvBody.text = it.prediction
-        Log.i("trucutru", "Success: ${it.sign} ${it.prediction}")
+        val image: Int = when(it.horoscope){
+            HoroscopeModel.Aries -> R.drawable.detail_aries
+            HoroscopeModel.Taurus -> R.drawable.detail_taurus
+            HoroscopeModel.Gemini -> R.drawable.detail_gemini
+            HoroscopeModel.Cancer -> R.drawable.detail_cancer
+            HoroscopeModel.Leo -> R.drawable.detail_leo
+            HoroscopeModel.Virgo -> R.drawable.detail_virgo
+            HoroscopeModel.Libra -> R.drawable.detail_libra
+            HoroscopeModel.Scorpio -> R.drawable.detail_scorpio
+            HoroscopeModel.Sagittarius -> R.drawable.detail_sagittarius
+            HoroscopeModel.Capricorn -> R.drawable.detail_capricorn
+            HoroscopeModel.Aquarius -> R.drawable.detail_aquarius
+            HoroscopeModel.Pisces -> R.drawable.detail_pisces
+
+        }
+        binding.ivDetail.setImageResource(image)
     }
 }
