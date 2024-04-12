@@ -84,8 +84,23 @@ dependencies {
     implementation("androidx.camera:camera-core:$camVersion")
     implementation("androidx.camera:camera-extensions:$camVersion")
 
-
+    //
+    //test junit kotlintest
+    testImplementation("io.kotest:kotest-runner-junit5:4.6.0")
     testImplementation("junit:junit:4.13.2")
+    //test mockk
+    testImplementation("io.mockk:mockk:1.12.3")
+
+
+    //android test
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //UI Testing, espresso contrib,intents, fragment-testing, dagger hilt
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.5.1")
+    androidTestImplementation("androidx.test.espresso:espresso-intents:3.5.1")
+    androidTestImplementation("androidx.fragment:fragment-testing:1.6.1")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.48")
+    kaptAndroidTest("com.google.dagger:hilt-compiler:2.48")
+
 }

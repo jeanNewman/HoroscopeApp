@@ -9,7 +9,8 @@ import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 @HiltViewModel
 class HoroscopeViewModel @Inject constructor(private val horoscopeProvider: HoroscopeProvider): ViewModel(){
-    private var _horoscope = MutableStateFlow<List<HoroscopeInfo>>(emptyList())//que significa _horoscope y horoscope en este caso? //horoscope es una propiedad privada que devuelve el valor de _horoscope y _horoscope es una variable privada que es una lista vacia
+    private var _horoscope = MutableStateFlow<List<HoroscopeInfo>>(emptyList())
+    //que significa _horoscope y horoscope en este caso? //horoscope es una propiedad privada que devuelve el valor de _horoscope y _horoscope es una variable privada que es una lista vacia
     val horoscope: StateFlow<List<HoroscopeInfo>> = _horoscope
 
     init {
