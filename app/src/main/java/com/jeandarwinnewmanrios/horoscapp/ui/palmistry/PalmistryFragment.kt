@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.Preview
+import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import com.jeandarwinnewmanrios.horoscapp.R
 import com.jeandarwinnewmanrios.horoscapp.databinding.FragmentLuckBinding
@@ -26,6 +30,7 @@ class PalmistryFragment : Fragment() {
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
         if (isGranted) {
             // Permission is granted. Continue the action or workflow in your app.
+            startCamera()
         } else {
             // Explain to the user that the feature is unavailable because the
             // features requires a permission that the user has denied. At the
@@ -43,11 +48,35 @@ class PalmistryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (checkCameraPermission()) {
-
+            // Permission is already granted
+            startCamera()
         }
         else{
             requestPermissionLauncher.launch(CAMERA_PERMISSION)
         }
+    }
+
+    private fun startCamera() {
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
+        cameraProviderFuture.addListener({
+            val cameraProvider = cameraProviderFuture.get()
+            // Use cases
+            val preview = Preview.Builder()
+                .build().also {
+                it.setSurfaceProvider(binding.pvPalmestry.surfaceProvider)
+            }
+            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+            try {
+                cameraProvider.unbindAll()
+                cameraProvider.bindToLifecycle(
+                    this,
+                    cameraSelector,
+                    preview
+                )
+            } catch(exc: Exception) {
+                Toast.makeText(requireContext(), "Use case binding failed", Toast.LENGTH_SHORT).show()
+            }
+        }, ContextCompat.getMainExecutor(requireContext()))
     }
 
     private fun checkCameraPermission(): Boolean {
