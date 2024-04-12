@@ -19,5 +19,41 @@
     <string name="capricorn">Capricorn</string>
     <string name="aquarius">Aquarius</string>
     <string name="pisces">Pisces</string>
+
+    <!--Luck -->
     <string name="share">Share</string>
+    <string name="luck_00">"Un desafío se convertirá en un escalón hacia logros aún mayores."</string>
+
+    <string name="luck_01">"Unexpected encounters will lead to exciting adventures."</string>
+    <string name="luck_02">"A long-lost friend will resurface, bringing joy and nostalgia."</string>
+    <string name="luck_03">"A sudden windfall will bring financial abundance."</string>
+    <string name="luck_04">"A difficult decision will ultimately lead to growth and success."</string>
+    <string name="luck_05">"An unexpected trip will broaden your horizons and perspective."</string>
+    <string name="luck_06">"A creative endeavor will flourish, bringing recognition and praise."</string>
+    <string name="luck_07">"A new friendship will bring laughter and support."</string>
+    <string name="luck_08">"A setback will lead to a valuable lesson and renewed determination."</string>
+    <string name="luck_09">"An opportunity to travel will arise, leading to unforgettable experiences."</string>
+     <string name="luck_10">"A serendipitous encounter will lead to a significant breakthrough."</string>
+     <string name="luck_11">"A challenging situation will unveil hidden strengths and resilience."</string>
+     <string name="luck_12">"A random act of kindness will have a ripple effect, spreading positivity."</string>
+     <string name="luck_13">"An unexpected change will open doors to new possibilities."</string>
+     <string name="luck_14">"A passion project will gain momentum, attracting opportunities."</string>
+     <string name="luck_15">"A reunion with loved ones will bring warmth and happiness."</string>
+     <string name="luck_16">"A chance encounter will lead to a valuable mentorship."</string>
+     <string name="luck_17">"A creative block will dissipate, leading to inspired innovation."</string>
+     <string name="luck_18">"An unexpected gift will brighten your day and lift your spirits."</string>
+     <string name="luck_19">"A hidden talent will emerge, bringing new opportunities."</string>
+     <string name="luck_20">"A period of introspection will lead to personal growth and clarity."</string>
+     <string name="luck_21">"An unexpected revelation will shed light on a long-standing mystery."</string>
+     <string name="luck_22">"A spontaneous decision will lead to unforgettable memories."</string>
+     <string name="luck_23">"A setback will pave the way for a greater success."</string>
+     <string name="luck_24">"An unexpected ally will offer support and encouragement."</string>
+     <string name="luck_25">"A forgotten dream will resurface, reigniting passion and ambition."</string>
+     <string name="luck_26">"A challenging situation will lead to personal transformation."</string>
+     <string name="luck_27">"A stroke of luck will bring unexpected blessings."</string>
+     <string name="luck_28">"A new opportunity will present itself, beckoning you to take a leap of faith."</string>
+     <string name="luck_29">"A period of solitude will bring clarity and self-discovery."</string>
+     <string name="luck_30">"An unexpected encounter will lead to a lifelong friendship."</string>
+     <string name="luck_31">"A setback will become a stepping stone towards greater achievements."</string>
+
 </resources>
